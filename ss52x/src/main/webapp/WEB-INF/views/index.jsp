@@ -4,5 +4,5 @@
 <title></title>
 </head>
 <body>
-  <h2>Welcome Page</h2>
+  <h2>Application Home Page</h2>
 </html>
