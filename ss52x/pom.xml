@@ -62,6 +62,12 @@
 			<version>2.3.1</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -74,14 +80,11 @@
 				</configuration>
 			</plugin>
 
-			<!-- Embedded Apache Tomcat required for testing web application -->
+			<!-- Embedded jetty required for testing web application -->
 			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<path>/</path>
-				</configuration>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.30.v20200611</version>
 			</plugin>
 		</plugins>
 	</build>
