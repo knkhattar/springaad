@@ -17,11 +17,11 @@ import org.springframework.security.oauth2.core.oidc.IdTokenClaimNames;
 import com.example.aad.ss52x.util.ConfidConstants;
 
 @Configuration
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private Environment env;
+//	@Autowired
+//	private Environment env;
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
@@ -41,11 +41,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		builder.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE);
 		builder.redirectUriTemplate("{baseUrl}/{action}/oauth2/code/{registrationId}");
 		builder.scope("openid", "profile");
-		builder.authorizationUri("https://login.microsoftonline.com/common/oauth2/v2.0/authorize");
-		builder.tokenUri("https://login.microsoftonline.com/common/oauth2/v2.0/token");
+		builder.authorizationUri("https://login.microsoftonline.com/"+ConfidConstants.tenantId+"/oauth2/v2.0/authorize");
+		builder.tokenUri("https://login.microsoftonline.com/"+ConfidConstants.tenantId+"/oauth2/v2.0/token");
 		builder.userInfoUri("https://graph.microsoft.com/oidc/userinfo");
 
-		builder.jwkSetUri("https://login.microsoftonline.com/common/discovery/keys");
+		builder.jwkSetUri("https://login.microsoftonline.com/"+ConfidConstants.tenantId+"/discovery/keys");
 		builder.clientName("azure");
 		// builder.userNameAttributeName("name");
 		builder.userNameAttributeName(IdTokenClaimNames.SUB);
