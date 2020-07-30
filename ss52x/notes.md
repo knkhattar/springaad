@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/admin/**").hasRole("ADMIN")
 				.antMatchers("/**").hasAnyRole("ADMIN", "USER").and().formLogin().and().logout()
-				.logoutSuccessUrl("/login").permitAll().and().csrf().disable();
+				.logoutSuccessUrl("/login").permitAll().and().csrf().disable().headers().frameOptions().sameOrigin();
 	}
 }
 '''
