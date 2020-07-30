@@ -5,4 +5,5 @@
 </head>
 <body>
   <h2>Application Home Page</h2>
+  <a href="/account">account info</a>
 </html>
